@@ -10,7 +10,7 @@ Minimi is a conversational AI agent built with TypeScript and Node.js. It combin
 - **Web search:** Uses Tavily to retrieve current information and relevant sources.
 - **AI-powered responses:** Uses Google's Gemini API with function calling.
 - **Source attribution:** Includes source links for web-based answers.
-- **Timezone awareness:** Supports configurable user timezones.
+- **Timezone awareness:** Supports date-aware memory retrieval using the Asia/Kolkata timezone.
 
 ## Tech Stack
 
@@ -51,7 +51,7 @@ The application follows this flow:
 Clone the repository:
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/Harika25-28/minimi-chat-agent.git
 cd minimi-chat-agent
 ```
 
@@ -63,13 +63,15 @@ npm install
 
 Create a `.env` file in the project root using `.env.example` as a template.
 
-Configure the following variables:
+Configure the following variables in `.env`:
 
 ```env
 GEMINI_API_KEY=your_gemini_api_key_here
 TAVILY_API_KEY=your_tavily_api_key_here
 USER_TIME_ZONE=Asia/Kolkata
 ```
+
+Replace the placeholder values with your actual API keys. Never commit your `.env` file.
 
 ## Running the Application
 
@@ -95,11 +97,11 @@ The backend runs at:
 
 `http://localhost:3000`
 
-Health check:
+### Health Check
 
 `GET /health`
 
-Chat endpoint:
+### Chat Endpoint
 
 `POST /chat`
 
@@ -115,9 +117,9 @@ Example request:
 
 | Variable | Description |
 |---|---|
-| GEMINI_API_KEY | Google Gemini API key |
-| TAVILY_API_KEY | Tavily search API key |
-| USER_TIME_ZONE | Timezone used for date-aware memory retrieval |
+| `GEMINI_API_KEY` | Google Gemini API key |
+| `TAVILY_API_KEY` | Tavily search API key |
+| `USER_TIME_ZONE` | Timezone used for date-aware memory retrieval |
 
 ## Project Structure
 
@@ -127,6 +129,7 @@ minimi-chat-agent/
 │   ├── ai.ts
 │   ├── database.ts
 │   ├── date-utils.ts
+│   ├── memory.ts
 │   ├── server.ts
 │   └── web-search.ts
 ├── .env.example
